@@ -1,0 +1,44 @@
+repos:
+  - repo: local
+    hooks:
+      - id: autoflake
+        name: Remove unused variables and imports
+        entry: bash -c 'autoflake "$@"' --
+        language: python
+        args:
+          [
+            '--in-place',
+            '--remove-all-unused-imports',
+            '--remove-unused-variables',
+            '--expand-star-imports',
+            '--ignore-init-module-imports',
+          ]
+        files: \.py$
+      - id: flake8
+        name: Check style with flake8
+        entry: bash -c 'flake8 "$@"' --
+        language: python
+        args: []
+        files: \.py$
+      - id: isort
+        name: Sorting import statements
+        entry: bash -c 'isort "$@"' --
+        language: python
+        args: ['--filter-files', '--color']
+        files: \.py$
+      - id: black
+        name: Black Python code formatting
+        entry: bash -c 'black "$@"' --
+        language: python
+        types: [python]
+      - id: poetry
+        name: Poetry dependencies to requirements.txt
+        entry: bash -c 'poetry export -f requirements.txt --output requirements.txt --without-hashes&&git add ./requirements.txt'
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: prettier
+        name: Run prettier on code
+        entry: bash -c 'pnpm run format'
+        language: system
+        files: \.ts*$

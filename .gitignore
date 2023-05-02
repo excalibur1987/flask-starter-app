@@ -1,0 +1,17 @@
+exports
+env
+*pyc
+__pycache__
+*log
+*.csv
+/*.sql
+*.xls*
+update.psql
+*.env
+venv
+My Folders/*
+data_tests.py
+*.xml
+data_tests.py
+db_update*.psql
+node_modules

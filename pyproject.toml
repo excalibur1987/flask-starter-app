@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "flask-starter-app"
+version = "0.1.0"
+description = "Minimal Flask server to save po application payloads to filesystem"
+authors = ["Omar Abdelbaky"]
+readme = "README.md"
+packages = [{include = "flask_starter_app"}]
+
+[tool.poetry.dependencies]
+python = "3.11"
+Flask = "^2.3.2"
+pyodbc = "^4.0.39"
+python-dotenv = "^1.0.0"
+python-dateutil = "^2.8.2"
+apscheduler = "^3.10.1"
+toml = "^0.10.2"
+sqlalchemy = "^2.0.12"
+redis = "^4.5.4"
+flask-sqlalchemy = "^3.0.3"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+black = "^23.3.0"
+pre-commit = "^3.3.0"
+autoflake = "^2.1.1"
+pytest = "^7.3.1"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
